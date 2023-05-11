@@ -24,7 +24,7 @@
         function() 
         {
             //set image uploader div
-            const imgUploadHtml = '<div class="card p-0"><div class="card-header bg-white border-bottom"><p class="text-danger float-start" id="lai-img-upload-limit"></p><a href="#" class="float-end lai-img-upload-plus"><i class="bi bi-plus-circle-fill lai-img-upload-plus-icon"></i></a></div><div class="card-body"><div class="row" id="lai-img-uploader-div">'+generateImageCard(settings.columns, settings.inputFileName, settings.imageCaption)+'</div></div></div>';
+            const imgUploadHtml = '<div class="card p-0"><div class="card-header bg-white border-bottom"><p class="text-danger float-start" id="lai-img-upload-limit"></p><a href="#!" class="float-end lai-img-upload-plus"><i class="bi bi-plus-circle-fill lai-img-upload-plus-icon"></i></a></div><div class="card-body"><div class="row" id="lai-img-uploader-div" style="padding: 5px;">'+generateImageCard(settings.columns, settings.inputFileName, settings.imageCaption)+'</div></div></div>';
         
             return $("#"+set_id).html(imgUploadHtml);
         }, 500);
