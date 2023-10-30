@@ -2,11 +2,7 @@
 
 Bootstrap image preview
 
-<div align="center">
-  <kbd>
-    <img src="https://i.ibb.co/kXjNfrR/lais-img-upload-demo.png" />
-  </kbd>
-</div>
+![Bootstrap Image Preview Demo](https://i.ibb.co/kXjNfrR/lais-img-upload-demo.png)
 
 ## Description
 
@@ -38,11 +34,11 @@ A Bootstrap/jQuery plugin that enables you to preview image uploads.
 
 All you have to do is download the source files, no configurations needed. Place the the files somewhere on your system and open the `index.html` file located at: `\lais-bs-image-upload\index.html`
 
-To initiate the image preview, set : `$("#upload-images").laiImagePreview();`. See optional prameters below.
-
 ### Usage
 
 Simply set the location you want the image preview to appear and set the id. Example : `<div class="row" id="upload-images"></div>`
+
+To initiate the image preview, set : `$("#upload-images").laiImagePreview();`. See optional prameters below.
 
 ### Options
 
