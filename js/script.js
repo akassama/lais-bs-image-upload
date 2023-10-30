@@ -112,11 +112,11 @@ $('body').on('click', 'img', function(e) {
 "use strict";
 function generateImageCard(initialgeneration, columns, inputName, imageCaption){
     const elementId = generateGuid();
-    var closeBtn = initialgeneration ? '' : '<a href="#" class="float-end lai-img-upload-close" data-input-id="'+elementId+'"><i class="bi bi-x-lg"></i></a>'; //remove close on initial load
+    var closeBtn = initialgeneration ? '' : '<a href="#!" class="float-end lai-img-upload-close" data-input-id="'+elementId+'"><i class="bi bi-x-lg"></i></a>'; //remove close on initial load
     var colFormat = !isEmpty(columns) && validColumn(columns) ? columns : "col-sm-4 col-md-3";
     var inputName = !isEmpty(inputName) ? inputName : "lai-img-upload-file";
     var imageCaptionInput = imageCaption == true ? '<input class="form-control form-control-sm" type="text" placeholder="image caption" name="lai-image-caption[]" id="lai-image-caption-'+elementId+'">' : "";
-    return '<div class="'+colFormat+' mb-2 lai-img-div" id="lai-img-div-'+elementId+'"><div class="card"><div class="card-header"><a href="#" class="float-start lai-img-upload-reload" data-input-id="'+elementId+'"><i class="bi bi-arrow-clockwise"></i></a>'+closeBtn+'</div><div class="card-body p-0"><img class="w-100 lai-img-file-src-'+elementId+'" data-input-id='+elementId+' height="180" src="'+getDefaultImageSrc()+'" alt="Card image"></div><div class="card-footer">'+imageCaptionInput+'<label for="File" class="form-label fst-italic text-danger small text-wrap lai-img-file-name-'+elementId+'"></label><input class="form-control form-control-sm lai-img-file-input" id="'+elementId+'" name="'+inputName+'" type="file" accept="image/*"></div></div></div>';
+    return '<div class="'+colFormat+' mb-2 lai-img-div" id="lai-img-div-'+elementId+'"><div class="card"><div class="card-header"><a href="#!" class="float-start lai-img-upload-reload" data-input-id="'+elementId+'"><i class="bi bi-arrow-clockwise"></i></a>'+closeBtn+'</div><div class="card-body p-0"><img class="w-100 lai-img-file-src-'+elementId+'" data-input-id='+elementId+' height="180" src="'+getDefaultImageSrc()+'" alt="Card image"></div><div class="card-footer">'+imageCaptionInput+'<label for="File" class="form-label fst-italic text-danger small text-wrap lai-img-file-name-'+elementId+'"></label><input class="form-control form-control-sm lai-img-file-input" id="'+elementId+'" name="'+inputName+'" type="file" accept="image/*"></div></div></div>';
 }
 
 //gets default image src
