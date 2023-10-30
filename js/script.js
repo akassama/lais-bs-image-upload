@@ -1,7 +1,6 @@
 
 "use strict";
 (function ( $ ) {
-
     $.fn.laiImagePreview = function( options ) {
         // setting default options.
         var settings = $.extend({
@@ -12,7 +11,7 @@
             imageLimit : 6
         }, options );
 
-        var set_id = $(this).attr("id");
+        var setId = $(this).attr("id");
 
         //set options settings
         sessionStorage.setItem("columns", settings.columns);
@@ -24,13 +23,12 @@
         function() 
         {
             //set image uploader div
-            const imgUploadHtml = '<div class="card p-0"><div class="card-header bg-white border-bottom"><p class="text-danger float-start" id="lai-img-upload-limit"></p><a href="#!" class="float-end lai-img-upload-plus"><i class="bi bi-plus-circle-fill lai-img-upload-plus-icon"></i></a></div><div class="card-body"><div class="row" id="lai-img-uploader-div" style="padding: 5px;">'+generateImageCard(settings.columns, settings.inputFileName, settings.imageCaption)+'</div></div></div>';
+            const imgUploadHtml = '<div class="card p-0"><div class="card-header bg-white border-bottom"><p class="text-danger float-start" id="lai-img-upload-limit"></p><a href="#!" class="float-end lai-img-upload-plus"><i class="bi bi-plus-circle-fill lai-img-upload-plus-icon"></i></a></div><div class="card-body"><div class="row" id="lai-img-uploader-div" style="padding: 5px;">'+generateImageCard(true, settings.columns, settings.inputFileName, settings.imageCaption)+'</div></div></div>';
         
-            return $("#"+set_id).html(imgUploadHtml);
+            return $("#"+setId).html(imgUploadHtml);
         }, 500);
 
     };
-
 }( jQuery ));
 
 
@@ -44,7 +42,7 @@ $('body').on('click', '.lai-img-upload-plus', function() {
     var numItems = parseInt($('.lai-img-div').length);
 
     if(numItems < (getLimit)){
-        $(".lai-img-div").last().after(generateImageCard(sessionStorage.getItem("columns"), sessionStorage.getItem("inputFileName"), imageCaption));
+        $(".lai-img-div").last().after(generateImageCard(false, sessionStorage.getItem("columns"), sessionStorage.getItem("inputFileName"), imageCaption));
     }
     else{
         $("#lai-img-upload-limit").html("Limit of " + getLimit + " image(s) has been reached.");
@@ -61,6 +59,9 @@ $('body').on('click', '.lai-img-upload-reload', function() {
     //clear image file name
     $(".lai-img-file-name-" + inputId).text("");
 
+    //clear seleted file name
+    $("#" + inputId).val(""); 
+
     //set image src
     $(".lai-img-file-src-" + inputId).attr('src', 'data:image/jpeg;base64,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');
 });
@@ -73,6 +74,7 @@ $('body').on('click', '.lai-img-upload-close', function() {
 
     //get data id for image file
     const inputId = $(this).data("input-id");
+  
     //remove image div
     $('#lai-img-div-' + inputId).remove();
 });
@@ -95,14 +97,26 @@ $('body').on('change', '.lai-img-file-input', function(e) {
     reader.readAsDataURL(this.files[0]);
 });
 
+//trigger select image file on image click
+"use strict";
+$('body').on('click', 'img', function(e) {
+
+    var fileInputId = $(this).data('input-id');
+    console.log('clicked! ' + fileInputId);
+
+    // Trigger a click event on the found file input
+    $("#" + fileInputId).click();
+ });
+
 //generate image card
 "use strict";
-function generateImageCard(columns, inputName, imageCaption){
+function generateImageCard(initialgeneration, columns, inputName, imageCaption){
     const elementId = generateGuid();
+    var closeBtn = initialgeneration ? '' : '<a href="#" class="float-end lai-img-upload-close" data-input-id="'+elementId+'"><i class="bi bi-x-lg"></i></a>'; //remove close on initial load
     var colFormat = !isEmpty(columns) && validColumn(columns) ? columns : "col-sm-4 col-md-3";
     var inputName = !isEmpty(inputName) ? inputName : "lai-img-upload-file";
     var imageCaptionInput = imageCaption == true ? '<input class="form-control form-control-sm" type="text" placeholder="image caption" name="lai-image-caption[]" id="lai-image-caption-'+elementId+'">' : "";
-    return '<div class="'+colFormat+' mb-2 lai-img-div" id="lai-img-div-'+elementId+'"><div class="card"><div class="card-header"><a href="#" class="float-start lai-img-upload-reload" data-input-id="'+elementId+'"><i class="bi bi-arrow-clockwise"></i></a><a href="#" class="float-end lai-img-upload-close" data-input-id="'+elementId+'"><i class="bi bi-x-lg"></i></a></div><div class="card-body p-0"><img class="w-100 lai-img-file-src-'+elementId+'" height="180" src="'+getDefaultImageSrc()+'" alt="Card image"></div><div class="card-footer">'+imageCaptionInput+'<label for="File" class="form-label fst-italic text-danger small text-wrap lai-img-file-name-'+elementId+'"></label><input class="form-control form-control-sm lai-img-file-input" id="'+elementId+'" name="'+inputName+'" type="file" accept="image/*"></div></div></div>';
+    return '<div class="'+colFormat+' mb-2 lai-img-div" id="lai-img-div-'+elementId+'"><div class="card"><div class="card-header"><a href="#" class="float-start lai-img-upload-reload" data-input-id="'+elementId+'"><i class="bi bi-arrow-clockwise"></i></a>'+closeBtn+'</div><div class="card-body p-0"><img class="w-100 lai-img-file-src-'+elementId+'" data-input-id='+elementId+' height="180" src="'+getDefaultImageSrc()+'" alt="Card image"></div><div class="card-footer">'+imageCaptionInput+'<label for="File" class="form-label fst-italic text-danger small text-wrap lai-img-file-name-'+elementId+'"></label><input class="form-control form-control-sm lai-img-file-input" id="'+elementId+'" name="'+inputName+'" type="file" accept="image/*"></div></div></div>';
 }
 
 //gets default image src
