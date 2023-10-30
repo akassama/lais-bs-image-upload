@@ -1,6 +1,6 @@
 # lais-bs-image-upload
 
-Generate completely secure and random passwords
+Bootstrap image preview
 
 <div align="center">
   <kbd>
@@ -24,6 +24,7 @@ A Bootstrap/jQuery plugin that enables you to preview image uploads.
 ### Built with
 
 - jQuery
+- Bootstrap
 - HTML + CSS
 
 ### Demo
