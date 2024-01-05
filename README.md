@@ -25,7 +25,7 @@ A Bootstrap/jQuery plugin that enables you to preview image uploads.
 
 ### Demo
 
-- [github.com/akassama/lais-bs-image-upload](https://github.com/akassama/lais-bs-image-upload)
+- [https://demo.akassama.com/lais-bs-image-upload](https://demo.akassama.com/lais-bs-image-upload)
 
 ## Getting started
 
